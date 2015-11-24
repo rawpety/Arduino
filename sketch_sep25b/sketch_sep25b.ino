@@ -1,5 +1,5 @@
-String sensor;
-String value;
+int sensor;
+int value;
 
 const int motor1 = 6;
 const int motor2 = 9;
@@ -13,14 +13,14 @@ void setup() {
 void loop() {
   if (Serial.available()) {
 //    Serial.write(Serial.read());
-      int sensor = Serial.read();
-      int value = 254;
+      sensor = Serial.read();
+      value = 254;
 
       delay(1);
       if(Serial.available())
       {
         value = Serial.read();
-        int mapSensorVal = constrain(fscale(5,40,255,0,value,3),0,255);
+        int mapSensorVal = constrain(fscale(5,80,255,0,value,4),0,255);
         if(sensor==1)
         {
             analogWrite(motor1, mapSensorVal);
