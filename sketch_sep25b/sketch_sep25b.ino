@@ -20,7 +20,7 @@ void loop() {
       if(Serial.available())
       {
         value = Serial.read();
-        int mapSensorVal = constrain(fscale(5,80,255,0,value,4),0,255);
+        int mapSensorVal = constrain(fscale(5,80,255,0,value,3),0,255);
         if(sensor==1)
         {
             analogWrite(motor1, mapSensorVal);
